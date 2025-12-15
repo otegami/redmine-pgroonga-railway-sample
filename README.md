@@ -18,13 +18,25 @@ Set the following variables for the Redmine service (reference PGroonga service 
 
 | Variable | Value |
 |----------|-------|
-| `REDMINE_DB_POSTGRES` | `${{PGroonga.PGHOST}}` |
-| `REDMINE_DB_PORT` | `${{PGroonga.PGPORT}}` |
+| `REDMINE_DB_POSTGRES` | `${{PGroonga.PGHOST_PRIVATE}}` |
+| `REDMINE_DB_PORT` | `${{PGroonga.PGPORT_PRIVATE}}` |
 | `REDMINE_DB_USERNAME` | `${{PGroonga.PGUSER}}` |
 | `REDMINE_DB_PASSWORD` | `${{PGroonga.PGPASSWORD}}` |
 | `REDMINE_DB_DATABASE` | `${{PGroonga.PGDATABASE}}` |
 | `REDMINE_PLUGINS_MIGRATE` | `true` |
 | `RAILS_ENV` | `production` |
+
+```json
+{
+  "RAILS_ENV": "production",
+  "REDMINE_DB_DATABASE": "${{PGroonga.PGDATABASE}}",
+  "REDMINE_DB_PASSWORD": "${{PGroonga.PGPASSWORD}}",
+  "REDMINE_DB_PORT": "${{PGroonga.PGPORT_PRIVATE}}",
+  "REDMINE_DB_POSTGRES": "${{PGroonga.PGHOST_PRIVATE}}",
+  "REDMINE_DB_USERNAME": "${{PGroonga.PGUSER}}",
+  "REDMINE_PLUGINS_MIGRATE": "true"
+}
+```
 
 > **Tip:** Want to try full-text search quickly? You can load test data after deployment. See steps 4-7 for details.
 
