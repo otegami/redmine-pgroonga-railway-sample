@@ -26,12 +26,43 @@ Set the following variables for the Redmine service (reference PGroonga service 
 | `REDMINE_PLUGINS_MIGRATE` | `true` |
 | `RAILS_ENV` | `production` |
 
-### 4. Create full-text search indexes
+> **Tip:** Want to try full-text search quickly? You can load test data after deployment. See steps 4-7 for details.
+
+### 4. Install Railway CLI
+
+Install Railway CLI.
+- https://docs.railway.com/guides/cli#installing-the-cli
+
+```bash
+railway --version
+railway x.xx.xx
+```
+
+### 5. Link to the target Railway project
+
+Please link to your target project and service.
+After using the following command, you can choose the project and service using shell.
+
+```bash
+railway link
+```
+
+### 6. Load test data (optional)
+
+To try out full-text search immediately, load sample data:
+
+```bash
+railway ssh --session
+bin/rails db:fixtures:load
+```
+
+### 7. Create full-text search indexes (optional)
 
 After deployment, run the following command to create indexes for existing data:
 
 ```bash
-railway run --service redmine bin/rails full_text_search:synchronize
+railway ssh --session
+bin/rails full_text_search:synchronize
 ```
 
 ## License
