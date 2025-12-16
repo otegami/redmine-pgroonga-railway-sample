@@ -79,4 +79,4 @@ bin/rails full_text_search:synchronize
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+GPL v2 or later. See [COPYING](COPYING) for details.
